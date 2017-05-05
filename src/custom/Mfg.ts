@@ -27,9 +27,9 @@
             let bodyTag :HTMLBodyElement             = bodyTags.item(0);
             let style   :CSSStyleDeclaration         = bodyTag.style;
 
-            style.backgroundColor = "black";
+            style.backgroundColor = "grey";
             style.textAlign       = "center";
-            style.margin          = "25";
+            style.margin          = "25px";
 
             Mfg.game = new MfgGame();
             Mfg.game.init();

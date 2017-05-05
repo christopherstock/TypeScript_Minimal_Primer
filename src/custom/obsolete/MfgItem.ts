@@ -10,9 +10,6 @@
         /** The bounding rectangle. */
         public          rect                        :MfgRect                        = null;
 
-        /** The representing image. */
-        private         image                       :HTMLImageElement               = null;
-
         /** Specifies if already being picked by player. */
         public          picked                      :boolean                        = false;
 
@@ -21,19 +18,16 @@
         *
         *   @param x        Startup position x.
         *   @param y        Startup position y.
-        *   @param image    The representing image.
         ***************************************************************************************************************/
-        public constructor( x:number, y:number, image:HTMLImageElement )
+        public constructor( x:number, y:number )
         {
             this.rect  = new MfgRect( x, y, 50, 50 );
-            this.image = image;
         }
 
         /***************************************************************************************************************
         *   Draws this sprite for the specified camera context.
         *
         *   @param context The 2D drawing context.
-        *   @param camera  The camera context to use for this drawing operation.
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D )
         {
@@ -46,7 +40,7 @@
                 this.rect.y,
                 this.rect.width,
                 this.rect.height,
-                MfgDrawing.COLOR_RED_TRANSLUCENT_33
+                "red"
             );
         }
     }

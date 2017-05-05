@@ -1,21 +1,12 @@
 
     /*******************************************************************************************************************
-    *   Offers independent drawing functionality for the canvas.
+    *   Offers independent drawing functionality for the 2D canvas rendering context.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
     class MfgDrawing
     {
-        /** The RGBA statement representing color 'black' with full opacity. */
-        public      static      COLOR_BLACK_OPAQUE                      :string         = "rgba( 0,   0,   0,   1.0  )";
-
-        /** The RGBA statement representing color 'red' with third opacity. */
-        public      static      COLOR_RED_TRANSLUCENT_33                :string         = "rgba( 255, 0,   0,   0.33 )";
-
-        /** The RGBA statement representing color 'blue' with third opacity. */
-        public      static      COLOR_BLUE_TRANSLUCENT_33               :string         = "rgba( 0,   0,   255, 0.33 )";
-
         /***************************************************************************************************************
         *   Fills a rect with the specified dimensions and color.
         *

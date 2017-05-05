@@ -13,21 +13,11 @@
         /** All obstacles the level consists of. */
         private                     items           :Array<MfgObstacle>                 = null;
 
-        /** The level width. */
-        public                      width           :number                             = 0;
-
-        /** The level height. */
-        public                      height          :number                             = 0;
-
         /***************************************************************************************************************
         *   Creates a new level instance.
         ***************************************************************************************************************/
         public constructor()
         {
-            //set level bounds
-            this.width  = MfgSetting.LEVEL_WIDTH;
-            this.height = MfgSetting.LEVEL_HEIGHT;
-
             //create items
             this.initItems();
 
@@ -41,9 +31,9 @@
         private initItems():void
         {
             this.items = [
-                new MfgObstacle( 350, 350, null ),
-                new MfgObstacle( 450, 475, null ),
-                new MfgObstacle( 600, 580, null ),
+                new MfgObstacle( 150, 100 ),
+                new MfgObstacle( 350, 180 ),
+                new MfgObstacle( 550, 320 ),
             ];
         }
 
@@ -52,14 +42,13 @@
         ***************************************************************************************************************/
         private initPlayer()
         {
-            this.player = new MfgPlayer( 0, 0, null );
+            this.player = new MfgPlayer( 0, 0 );
         }
 
         /***************************************************************************************************************
         *   Draws the level.
         *
         *   @param context The 2D drawing context.
-        *   @param camera  The camera context to use for this drawing operation.
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D )
         {

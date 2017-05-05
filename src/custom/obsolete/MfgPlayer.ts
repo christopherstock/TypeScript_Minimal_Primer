@@ -10,20 +10,15 @@
         /** The bounding rectangle. */
         public          rect                        :MfgRect                        = null;
 
-        /** The representing image. */
-        private         image                       :HTMLImageElement               = null;
-
         /***************************************************************************************************************
         *   Creates a new player instance.
         *
         *   @param x     Startup position x.
         *   @param y     Startup position y.
-        *   @param image The representing image.
         ***************************************************************************************************************/
-        public constructor( x:number, y:number, image:HTMLImageElement )
+        public constructor( x:number, y:number )
         {
             this.rect  = new MfgRect( x, y, 50, 50 );
-            this.image = image;
         }
 
         /***************************************************************************************************************
@@ -40,7 +35,7 @@
                 this.rect.y,
                 this.rect.width,
                 this.rect.height,
-                MfgDrawing.COLOR_BLUE_TRANSLUCENT_33
+                "blue"
             );
         }
 
@@ -75,9 +70,9 @@
         ***************************************************************************************************************/
         public clipToLevelBounds()
         {
-            if ( this.rect.x < 0                                        ) this.rect.x = 0;
-            if ( this.rect.x > Mfg.game.level.width - this.rect.width   ) this.rect.x = Mfg.game.level.width - this.rect.width;
-            if ( this.rect.y < 0                                        ) this.rect.y = 0;
-            if ( this.rect.y > Mfg.game.level.height - this.rect.height ) this.rect.y = Mfg.game.level.height - this.rect.height;
+            if ( this.rect.x < 0                                            ) this.rect.x = 0;
+            if ( this.rect.x > MfgSetting.CANVAS_WIDTH  - this.rect.width   ) this.rect.x = MfgSetting.CANVAS_WIDTH  - this.rect.width;
+            if ( this.rect.y < 0                                            ) this.rect.y = 0;
+            if ( this.rect.y > MfgSetting.CANVAS_HEIGHT - this.rect.height  ) this.rect.y = MfgSetting.CANVAS_HEIGHT - this.rect.height;
         }
     }
