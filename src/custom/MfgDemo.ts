@@ -27,11 +27,8 @@
         public init()
         {
             this.initCanvas();
-
-            this.initItems();
-
+            this.initRects();
             this.initFpsMeter();
-
             this.startGameLoop();
         }
 
@@ -41,9 +38,9 @@
         private initCanvas()
         {
             let canvasTag:HTMLCanvasElement = <HTMLCanvasElement>document.createElement("canvas");
-            canvasTag.width                 = MfgSetting.CANVAS_WIDTH;
-            canvasTag.height                = MfgSetting.CANVAS_HEIGHT;
-            canvasTag.style.backgroundColor = MfgSetting.CANVAS_BG_COLOR;
+            canvasTag.width                 = 900;
+            canvasTag.height                = 500;
+            canvasTag.style.backgroundColor = "white";
 
             document.body.appendChild(canvasTag);
 
@@ -53,7 +50,7 @@
         /***************************************************************************************************************
         *   Inits all items for this level.
         ***************************************************************************************************************/
-        private initItems():void
+        private initRects():void
         {
             this.items = [
                 new MfgRect( 125, 25,  75,  75,  "orange" ),
@@ -90,7 +87,7 @@
         ***************************************************************************************************************/
         private startGameLoop()
         {
-            window.setInterval(this.tick, MfgSetting.THREAD_DELAY);
+            window.setInterval(this.tick, 10);
         }
 
         /***************************************************************************************************************
@@ -112,7 +109,7 @@
         private render()
         {
             for (let item of this.items) {
-                item.y += 0.1;
+                item.y += 0.5;
             }
         }
 
@@ -121,7 +118,7 @@
         ***************************************************************************************************************/
         private draw()
         {
-            this.canvasContext.clearRect(0, 0, MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT);
+            this.canvasContext.clearRect(0, 0, 900, 500);
 
             for (let item of this.items) {
                 item.draw(this.canvasContext);

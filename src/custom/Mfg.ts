@@ -4,7 +4,6 @@
     *
     *   TODO ASAP Apply BAHAG code style everywhere.
     *   TODO ASAP Fix all doc blocks.
-    *   TODO ASAP Random item generation and movement.
     *   TODO ASAP Prune settings!
     *
     *   @author  Christopher Stock
@@ -20,8 +19,6 @@
         ***************************************************************************************************************/
         public static main():void
         {
-            console.log("Welcome to our main method.");
-
             Mfg.setDocumentTitle();
             Mfg.styleHtmlBody();
 
