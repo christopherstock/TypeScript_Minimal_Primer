@@ -37,7 +37,7 @@
         ***************************************************************************************************************/
         private handleKeyDown=(evt:KeyboardEvent)=>
         {
-            let keyCode = evt.which;
+            let keyCode = evt.keyCode;
 
             this.pressed[ keyCode ] = true;
 
@@ -51,7 +51,7 @@
         ***************************************************************************************************************/
         private handleKeyUp=(evt:KeyboardEvent)=>
         {
-            let keyCode = evt.which;
+            let keyCode = evt.keyCode;
 
             this.pressed[ keyCode ] = false;
 

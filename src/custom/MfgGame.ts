@@ -51,7 +51,7 @@
             canvasTag.height                = MfgSetting.CANVAS_HEIGHT;
             canvasTag.style.backgroundColor = MfgSetting.CANVAS_BG_COLOR;
 
-            document.body.appendChild( canvasTag );
+            document.body.appendChild(canvasTag);
 
             this.canvasContext              = <CanvasRenderingContext2D>canvasTag.getContext("2d");
         }
@@ -133,7 +133,6 @@
         private render()
         {
             this.handlePlayerKeys();
-            this.clipToLevelBounds();
 
             this.checkObstacleCollisions();
         }
@@ -196,16 +195,5 @@
             {
                 this.player.y += MfgSetting.PLAYER_SPEED;
             }
-        }
-
-        /***************************************************************************************************************
-        *   Clip the player to the horizontal level bounds.
-        ***************************************************************************************************************/
-        private clipToLevelBounds()
-        {
-            if ( this.player.x < 0                                             ) this.player.x = 0;
-            if ( this.player.x > MfgSetting.CANVAS_WIDTH  - this.player.width  ) this.player.x = MfgSetting.CANVAS_WIDTH  - this.player.width;
-            if ( this.player.y < 0                                             ) this.player.y = 0;
-            if ( this.player.y > MfgSetting.CANVAS_HEIGHT - this.player.height ) this.player.y = MfgSetting.CANVAS_HEIGHT - this.player.height;
         }
     }
