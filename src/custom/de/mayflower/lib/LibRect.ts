@@ -1,4 +1,4 @@
-module de.mayflower.mfg
+module de_mayflower_lib
 {
     /*******************************************************************************************************************
     *   A rectangular in 2D space.
@@ -6,7 +6,7 @@ module de.mayflower.mfg
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    export class MfgRect
+    export class LibRect
     {
         /** The left coordinate. */
         public              x               :number                     = 0;
@@ -42,7 +42,7 @@ module de.mayflower.mfg
         *
         *   @param ctx The rendering context.
         ***************************************************************************************************************/
-        public draw( ctx:CanvasRenderingContext2D )
+        public draw(ctx:CanvasRenderingContext2D)
         {
             ctx.fillStyle = this.color;
             ctx.fillRect( this.x, this.y, this.width, this.height );
@@ -55,7 +55,7 @@ module de.mayflower.mfg
         *   @return      <code>true</code> if the rects collide.
         *                Otherwise <code>false</code>.
         ***************************************************************************************************************/
-        public collidesWithRect( rect:MfgRect ):boolean
+        public collidesWithRect(rect:LibRect):boolean
         {
             return (
                     this.x                < rect.x + rect.width

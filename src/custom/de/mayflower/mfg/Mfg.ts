@@ -3,12 +3,7 @@ module de.mayflower.mfg
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO ASAP Different modules - explain feature.
-    *
-    *   TODO ASAP include export statements into all classes!
-    *   TODO ASAP wrap magic in this class into easy methods!
     *   TODO ASAP Prune all advanced techs.
-    *   TODO ASAP Merge Canvas and Drawing class.
     *   TODO ASAP Apply BAHAG code style everywhere.
     *   TODO ASAP Fix all doc blocks.
     *
