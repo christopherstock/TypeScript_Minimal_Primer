@@ -20,7 +20,7 @@
         ***************************************************************************************************************/
         public static main():void
         {
-            MfgDebug.log("Welcome to our main method.");
+            console.log("Welcome to our main method.");
 
             Mfg.setDocumentTitle();
             Mfg.styleHtmlBody();
