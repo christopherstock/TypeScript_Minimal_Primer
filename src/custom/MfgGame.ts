@@ -7,14 +7,14 @@
     *******************************************************************************************************************/
     class MfgGame
     {
-        /** Canvas for all drawing operations. */
-        public                  canvas                  :MfgCanvas                      = null;
+        /** The canvas rendering context for all 2D drawing operations. */
+        private                 canvasContext           :CanvasRenderingContext2D       = null;
         /** Key handling system. */
-        public                  keySystem               :MfgKeySystem                   = null;
+        private                 keySystem               :MfgKeySystem                   = null;
         /** Heads Up Display. */
-        public                  hud                     :MfgHUD                         = null;
+        private                 hud                     :MfgHUD                         = null;
         /** The player instance. */
-        public                  player                  :MfgRect                        = null;
+        private                 player                  :MfgRect                        = null;
         /** All obstacles the level consists of. */
         private                 items                   :Array<MfgRect>                 = null;
 
@@ -46,9 +46,14 @@
         ***************************************************************************************************************/
         private initCanvas()
         {
-            this.canvas = new MfgCanvas( MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT );
+            let canvasTag:HTMLCanvasElement = <HTMLCanvasElement>document.createElement("canvas");
+            canvasTag.width                 = MfgSetting.CANVAS_WIDTH;
+            canvasTag.height                = MfgSetting.CANVAS_HEIGHT;
+            canvasTag.style.backgroundColor = "white";
 
-            document.body.appendChild( this.canvas.getCanvasTag() );
+            document.body.appendChild( canvasTag );
+
+            this.canvasContext              = <CanvasRenderingContext2D>canvasTag.getContext("2d");
         }
 
         /***************************************************************************************************************
@@ -82,12 +87,12 @@
         /***************************************************************************************************************
         *   Handles one game tick.
         ***************************************************************************************************************/
-        public tick=()=>
+        private tick=()=>
         {
             Mfg.game.hud.fpsMeter.tickStart();
 
             this.render();
-            this.draw( Mfg.game.canvas.getContext() );
+            this.draw(this.canvasContext);
 
             Mfg.game.hud.fpsMeter.tick();
         };
@@ -95,7 +100,7 @@
         /***************************************************************************************************************
         *   Renders the current game tick.
         ***************************************************************************************************************/
-        public render()
+        private render()
         {
             this.handlePlayerKeys();
             this.clipToLevelBounds();
@@ -108,7 +113,7 @@
         *
         *   @param context The 2D drawing context.
         ***************************************************************************************************************/
-        public draw( context:CanvasRenderingContext2D )
+        private draw( context:CanvasRenderingContext2D )
         {
             context.clearRect(0, 0, MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT);
 
@@ -129,12 +134,12 @@
             {
                 if ( this.player.collidesWithRect( this.items[ i ] ) )
                 {
-                    MfgDebug.log( 'Item picked up!' );
+                    MfgDebug.log("Item picked up!");
 
                     this.items.splice(i, 1);
 
                     if ( this.items.length == 0 ) {
-                        MfgDebug.log( "You picked up all items!" );
+                        MfgDebug.log("You picked up all items!");
                     }
                 }
             }
@@ -143,7 +148,7 @@
         /***************************************************************************************************************
         *   Handle the keys the user has pressed.
         ***************************************************************************************************************/
-        public handlePlayerKeys()
+        private handlePlayerKeys()
         {
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_LEFT ) )
             {
@@ -169,7 +174,7 @@
         /***************************************************************************************************************
         *   Clip the player to the horizontal level bounds.
         ***************************************************************************************************************/
-        public clipToLevelBounds()
+        private clipToLevelBounds()
         {
             if ( this.player.x < 0                                             ) this.player.x = 0;
             if ( this.player.x > MfgSetting.CANVAS_WIDTH  - this.player.width  ) this.player.x = MfgSetting.CANVAS_WIDTH  - this.player.width;
