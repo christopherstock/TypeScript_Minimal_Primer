@@ -19,4 +19,7 @@
         public      static      PLAYER_SPEED                        :number             = 4;
         /** The player's square size in px */
         public      static      PLAYER_SIZE                         :number             = 50;
+
+        /** The item's square size in px */
+        public      static      ITEM_SIZE                           :number             = 25;
     }

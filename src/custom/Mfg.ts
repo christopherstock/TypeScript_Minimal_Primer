@@ -8,6 +8,8 @@
     *   TODO ASAP Merge Canvas and Drawing class.
     *   TODO ASAP Apply BAHAG code style everywhere.
     *   TODO ASAP Fix all doc blocks.
+    *   TODO ASAP Use foreach loop where possible!
+    *   TODO ASAP
     *   TODO ASAP Move draw() function (fillRect) to Rect class!!
     *
     *   @author  Christopher Stock

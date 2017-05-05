@@ -18,7 +18,7 @@
         /** The player instance. */
         public                  player                  :MfgRect                        = null;
         /** All obstacles the level consists of. */
-        private                 items                   :Array<MfgObstacle>             = null;
+        private                 items                   :Array<MfgRect>                 = null;
 
         /***************************************************************************************************************
         *   Creates a new game logic.
@@ -70,9 +70,9 @@
         private initItems():void
         {
             this.items = [
-                new MfgObstacle( 150, 100 ),
-                new MfgObstacle( 350, 180 ),
-                new MfgObstacle( 550, 320 ),
+                new MfgRect( 150, 100, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE ),
+                new MfgRect( 350, 180, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE ),
+                new MfgRect( 550, 320, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE ),
             ];
         }
 
@@ -112,9 +112,18 @@
                 "white"
             );
 
+            // TODO turn to foreach !!
             for ( let i:number = 0; i < this.items.length; ++i )
             {
-                this.items[ i ].draw( context );
+                MfgDrawing.fillRect
+                (
+                    context,
+                    this.items[i].x,
+                    this.items[i].y,
+                    this.items[i].width,
+                    this.items[i].height,
+                    "red"
+                );
             }
 
             MfgDrawing.fillRect
@@ -133,37 +142,19 @@
         ***************************************************************************************************************/
         private checkObstacleCollisions() : void
         {
-            for ( let i:number = 0; i < this.items.length; i++ )
+            for ( let i:number = this.items.length - 1; i >= 0; i-- )
             {
-                if ( !this.items[ i ].picked && this.player.collidesWithRect( this.items[ i ].rect ) )
+                if ( this.player.collidesWithRect( this.items[ i ] ) )
                 {
-                    this.items[i].picked = true;
-
                     MfgDebug.log( 'Item picked up!' );
 
-                    if ( this.checkGameOver() ) {
+                    this.items.splice(i, 1);
+
+                    if ( this.items.length == 0 ) {
                         MfgDebug.log( "You picked up all items!" );
                     }
                 }
             }
-        }
-
-        /***************************************************************************************************************
-        *   Checks if all items are picked and outputs a message in this case.
-        *
-        *   @return boolean
-        ***************************************************************************************************************/
-        private checkGameOver() : boolean
-        {
-            for ( let i:number = 0; i < this.items.length; i++ )
-            {
-                if ( !this.items[ i ].picked )
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
 
         /***************************************************************************************************************
