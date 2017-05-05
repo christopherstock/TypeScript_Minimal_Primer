@@ -25,6 +25,19 @@
         ***************************************************************************************************************/
         public static main():void
         {
+            MfgDebug.log("Welcome to our main method.");
+
+            Mfg.styleHtmlBody();
+
+            Mfg.game = new MfgGame();
+            Mfg.game.init();
+        }
+
+        /***************************************************************************************************************
+        *   Dynamically applies css to the HTML body tag.
+        ***************************************************************************************************************/
+        private static styleHtmlBody():void
+        {
             let bodyTags:NodeListOf<HTMLBodyElement> = document.getElementsByTagName("body");
             let bodyTag :HTMLBodyElement             = bodyTags.item(0);
             let style   :CSSStyleDeclaration         = bodyTag.style;
@@ -32,9 +45,6 @@
             style.backgroundColor = "grey";
             style.textAlign       = "center";
             style.margin          = "25px";
-
-            Mfg.game = new MfgGame();
-            Mfg.game.init();
         }
     }
 

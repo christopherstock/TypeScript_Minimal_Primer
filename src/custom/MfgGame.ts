@@ -30,15 +30,13 @@
         ***************************************************************************************************************/
         public init()
         {
-            MfgDebug.log("Welcome!");
-
             this.initCanvas();
             this.initKeySystem();
 
             this.initItems();
             this.initPlayer();
 
-            this.hud      = new MfgHUD();
+            this.hud = new MfgHUD();
 
             window.setInterval( this.tick, MfgSetting.THREAD_DELAY );
         }
