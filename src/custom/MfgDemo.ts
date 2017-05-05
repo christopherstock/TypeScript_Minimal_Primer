@@ -29,6 +29,7 @@
             this.initCanvas();
             this.initRects();
             this.initFpsMeter();
+
             this.startGameLoop();
         }
 
