@@ -33,8 +33,8 @@
             this.initCanvas();
             this.initKeySystem();
 
-            this.initItems();
             this.initPlayer();
+            this.initItems();
 
             this.initFpsMeter();
 
@@ -49,7 +49,7 @@
             let canvasTag:HTMLCanvasElement = <HTMLCanvasElement>document.createElement("canvas");
             canvasTag.width                 = MfgSetting.CANVAS_WIDTH;
             canvasTag.height                = MfgSetting.CANVAS_HEIGHT;
-            canvasTag.style.backgroundColor = "white";
+            canvasTag.style.backgroundColor = MfgSetting.CANVAS_BG_COLOR;
 
             document.body.appendChild( canvasTag );
 
@@ -122,7 +122,7 @@
             this.fpsMeter.tickStart();
 
             this.render();
-            this.draw(this.canvasContext);
+            this.draw();
 
             this.fpsMeter.tick();
         };
@@ -139,19 +139,17 @@
         }
 
         /***************************************************************************************************************
-        *   Draws the level.
-        *
-        *   @param context The 2D drawing context.
+        *   Draws the current game tick.
         ***************************************************************************************************************/
-        private draw( context:CanvasRenderingContext2D )
+        private draw()
         {
-            context.clearRect(0, 0, MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT);
+            this.canvasContext.clearRect(0, 0, MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT);
 
             for (let item of this.items) {
-                item.draw(context);
+                item.draw(this.canvasContext);
             }
 
-            this.player.draw(context);
+            this.player.draw(this.canvasContext);
         }
 
         /***************************************************************************************************************
