@@ -27,7 +27,7 @@
         *   @param height Vertical dimension.
         *   @param color  Fill color.
         ***************************************************************************************************************/
-        public constructor( x:number, y:number, width:number, height:number, color:string )
+        public constructor(x:number, y:number, width:number, height:number, color:string)
         {
             this.x      = x;
             this.y      = y;
@@ -41,7 +41,7 @@
         *
         *   @param ctx The rendering context.
         ***************************************************************************************************************/
-        public draw(ctx:CanvasRenderingContext2D)
+        public draw(ctx:CanvasRenderingContext2D):void
         {
             ctx.fillStyle = this.color;
             ctx.fillRect( this.x, this.y, this.width, this.height );

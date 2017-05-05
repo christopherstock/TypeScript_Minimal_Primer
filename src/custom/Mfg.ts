@@ -2,7 +2,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO ASAP Apply BAHAG code style everywhere.
     *   TODO ASAP Fix all doc blocks.
     *   TODO ASAP Prune settings!
     *
@@ -29,7 +28,7 @@
         /***************************************************************************************************************
         *   Dynamically sets the document's title.
         ***************************************************************************************************************/
-        private static setDocumentTitle()
+        private static setDocumentTitle():void
         {
             document.title = "TypeScript Minimal Primer, (c) 2017 Mayflower GmbH, v. 1.0";
         }
