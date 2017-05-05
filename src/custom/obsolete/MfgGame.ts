@@ -16,7 +16,7 @@
         /** Game loop. */
         public                  gameLoop                :MfgGameLoop                    = null;
         /** The player instance. */
-        public                  player                  :MfgPlayer                      = null;
+        public                  player                  :MfgRect                        = null;
         /** All obstacles the level consists of. */
         private                 items                   :Array<MfgObstacle>             = null;
 
@@ -81,7 +81,7 @@
         ***************************************************************************************************************/
         private initPlayer()
         {
-            this.player = new MfgPlayer( 0, 0 );
+            this.player = new MfgRect( 0, 0, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_SIZE );
         }
 
         /***************************************************************************************************************
@@ -89,8 +89,8 @@
         ***************************************************************************************************************/
         public render()
         {
-            this.player.handlePlayerKeys();
-            this.player.clipToLevelBounds();
+            this.handlePlayerKeys();
+            this.clipToLevelBounds();
 
             this.checkObstacleCollisions();
         }
@@ -117,7 +117,15 @@
                 this.items[ i ].draw( context );
             }
 
-            this.player.draw( context );
+            MfgDrawing.fillRect
+            (
+                context,
+                this.player.x,
+                this.player.y,
+                this.player.width,
+                this.player.height,
+                "blue"
+            );
         }
 
         /***************************************************************************************************************
@@ -127,7 +135,7 @@
         {
             for ( let i:number = 0; i < this.items.length; i++ )
             {
-                if ( !this.items[ i ].picked && this.player.rect.collidesWithRect( this.items[ i ].rect ) )
+                if ( !this.items[ i ].picked && this.player.collidesWithRect( this.items[ i ].rect ) )
                 {
                     this.items[i].picked = true;
 
@@ -156,5 +164,42 @@
             }
 
             return true;
+        }
+
+        /***************************************************************************************************************
+        *   Handle the keys the user has pressed.
+        ***************************************************************************************************************/
+        public handlePlayerKeys()
+        {
+            if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_LEFT ) )
+            {
+                this.player.x -= MfgSetting.PLAYER_SPEED;
+            }
+
+            if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_RIGHT ) )
+            {
+                this.player.x += MfgSetting.PLAYER_SPEED;
+            }
+
+            if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_UP ) )
+            {
+                this.player.y -= MfgSetting.PLAYER_SPEED;
+            }
+
+            if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_DOWN ) )
+            {
+                this.player.y += MfgSetting.PLAYER_SPEED;
+            }
+        }
+
+        /***************************************************************************************************************
+        *   Clip the player to the horizontal level bounds.
+        ***************************************************************************************************************/
+        public clipToLevelBounds()
+        {
+            if ( this.player.x < 0                                             ) this.player.x = 0;
+            if ( this.player.x > MfgSetting.CANVAS_WIDTH  - this.player.width  ) this.player.x = MfgSetting.CANVAS_WIDTH  - this.player.width;
+            if ( this.player.y < 0                                             ) this.player.y = 0;
+            if ( this.player.y > MfgSetting.CANVAS_HEIGHT - this.player.height ) this.player.y = MfgSetting.CANVAS_HEIGHT - this.player.height;
         }
     }

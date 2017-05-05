@@ -17,4 +17,6 @@
 
         /** The player's movement speed in pixels per tick. */
         public      static      PLAYER_SPEED                        :number             = 4;
+        /** The player's square size in px */
+        public      static      PLAYER_SIZE                         :number             = 50;
     }

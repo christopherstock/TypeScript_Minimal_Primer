@@ -8,6 +8,7 @@
     *   TODO ASAP Merge Canvas and Drawing class.
     *   TODO ASAP Apply BAHAG code style everywhere.
     *   TODO ASAP Fix all doc blocks.
+    *   TODO ASAP Move draw() function (fillRect) to Rect class!!
     *
     *   @author  Christopher Stock
     *   @version 1.0
