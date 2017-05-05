@@ -1,6 +1,3 @@
-module de.mayflower.mfg
-{
-    //import LibRect = de.mayflower.lib.LibRect;
 
     /*******************************************************************************************************************
     *   Handles the game logic.
@@ -8,16 +5,16 @@ module de.mayflower.mfg
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    export class MfgGame
+    class MfgGame
     {
         /** The canvas rendering context for all 2D drawing operations. */
         private                 canvasContext           :CanvasRenderingContext2D       = null;
         /** Key handling system. */
         private                 keySystem               :MfgKeySystem                   = null;
         /** The player instance. */
-        private                 player                  :de_mayflower_lib.LibRect                        = null;
+        private                 player                  :LibRect                        = null;
         /** All obstacles the level consists of. */
-        private                 items                   :Array<de_mayflower_lib.LibRect>                 = null;
+        private                 items                   :Array<LibRect>                 = null;
         /** The FPS display. */
         public                  fpsMeter                :FPSMeter                       = null;
 
@@ -73,9 +70,9 @@ module de.mayflower.mfg
         private initItems():void
         {
             this.items = [
-                new de_mayflower_lib.LibRect( 150, 100, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
-                new de_mayflower_lib.LibRect( 350, 180, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
-                new de_mayflower_lib.LibRect( 550, 320, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
+                new LibRect( 150, 100, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
+                new LibRect( 350, 180, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
+                new LibRect( 550, 320, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
             ];
         }
 
@@ -84,7 +81,7 @@ module de.mayflower.mfg
         ***************************************************************************************************************/
         private initPlayer()
         {
-            this.player = new de_mayflower_lib.LibRect( 0, 0, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_COLOR );
+            this.player = new LibRect( 0, 0, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_COLOR );
         }
 
         /***************************************************************************************************************
@@ -214,4 +211,3 @@ module de.mayflower.mfg
             if ( this.player.y > MfgSetting.CANVAS_HEIGHT - this.player.height ) this.player.y = MfgSetting.CANVAS_HEIGHT - this.player.height;
         }
     }
-}

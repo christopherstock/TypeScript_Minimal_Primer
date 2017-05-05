@@ -1,12 +1,11 @@
-module de_mayflower_lib
-{
+
     /*******************************************************************************************************************
     *   A rectangular in 2D space.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    export class LibRect
+    class LibRect
     {
         /** The left coordinate. */
         public              x               :number                     = 0;
@@ -65,4 +64,3 @@ module de_mayflower_lib
             );
         }
     }
-}

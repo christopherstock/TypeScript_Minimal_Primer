@@ -1,5 +1,4 @@
-module de.mayflower.mfg
-{
+
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
@@ -10,7 +9,7 @@ module de.mayflower.mfg
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    export class Mfg
+    class Mfg
     {
         /** The singleton instance of the game logic. */
         public          static          game                :MfgGame                = null;
@@ -66,4 +65,3 @@ module de.mayflower.mfg
     window.onunload = function()
     {
     };
-}
