@@ -5,14 +5,10 @@
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class MfgGame
+    class MfgDemo
     {
         /** The canvas rendering context for all 2D drawing operations. */
         private                 canvasContext           :CanvasRenderingContext2D       = null;
-        /** Key handling system. */
-        private                 keySystem               :MfgKeySystem                   = null;
-        /** The player instance. */
-        private                 player                  :MfgRect                        = null;
         /** All obstacles the level consists of. */
         private                 items                   :Array<MfgRect>                 = null;
         /** The FPS display. */
@@ -31,9 +27,7 @@
         public init()
         {
             this.initCanvas();
-            this.initKeySystem();
 
-            this.initPlayer();
             this.initItems();
 
             this.initFpsMeter();
@@ -57,31 +51,16 @@
         }
 
         /***************************************************************************************************************
-        *   Inits the key system.
-        ***************************************************************************************************************/
-        private initKeySystem()
-        {
-            this.keySystem = new MfgKeySystem();
-        }
-
-        /***************************************************************************************************************
         *   Inits all items for this level.
         ***************************************************************************************************************/
         private initItems():void
         {
             this.items = [
-                new MfgRect( 150, 100, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
-                new MfgRect( 350, 180, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
-                new MfgRect( 550, 320, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
+                new MfgRect( 125, 25,  75,  75,  "orange" ),
+                new MfgRect( 300, 150, 120, 30,  "yellow" ),
+                new MfgRect( 550, 250, 30,  120, "red"    ),
+                new MfgRect( 620, 75,  150, 50,  "grey"   ),
             ];
-        }
-
-        /***************************************************************************************************************
-        *   Inits the player for this level.
-        ***************************************************************************************************************/
-        private initPlayer()
-        {
-            this.player = new MfgRect( 0, 0, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_COLOR );
         }
 
         /***************************************************************************************************************
@@ -132,9 +111,9 @@
         ***************************************************************************************************************/
         private render()
         {
-            this.handlePlayerKeys();
-
-            this.checkObstacleCollisions();
+            for (let item of this.items) {
+                item.y += 0.1;
+            }
         }
 
         /***************************************************************************************************************
@@ -146,54 +125,6 @@
 
             for (let item of this.items) {
                 item.draw(this.canvasContext);
-            }
-
-            this.player.draw(this.canvasContext);
-        }
-
-        /***************************************************************************************************************
-        *   Returns a collided obstacle in case of a collision.
-        ***************************************************************************************************************/
-        private checkObstacleCollisions() : void
-        {
-            for ( let i:number = this.items.length - 1; i >= 0; i-- )
-            {
-                if ( this.player.collidesWithRect( this.items[ i ] ) )
-                {
-                    MfgDebug.log("Item picked up!");
-
-                    this.items.splice(i, 1);
-
-                    if ( this.items.length == 0 ) {
-                        MfgDebug.log("You picked up all items!");
-                    }
-                }
-            }
-        }
-
-        /***************************************************************************************************************
-        *   Handle the keys the user has pressed.
-        ***************************************************************************************************************/
-        private handlePlayerKeys()
-        {
-            if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_LEFT ) )
-            {
-                this.player.x -= MfgSetting.PLAYER_SPEED;
-            }
-
-            if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_RIGHT ) )
-            {
-                this.player.x += MfgSetting.PLAYER_SPEED;
-            }
-
-            if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_UP ) )
-            {
-                this.player.y -= MfgSetting.PLAYER_SPEED;
-            }
-
-            if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_DOWN ) )
-            {
-                this.player.y += MfgSetting.PLAYER_SPEED;
             }
         }
     }

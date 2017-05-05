@@ -4,6 +4,8 @@
     *
     *   TODO ASAP Apply BAHAG code style everywhere.
     *   TODO ASAP Fix all doc blocks.
+    *   TODO ASAP Random item generation and movement.
+    *   TODO ASAP Prune settings!
     *
     *   @author  Christopher Stock
     *   @version 1.0
@@ -11,7 +13,7 @@
     class Mfg
     {
         /** The singleton instance of the game logic. */
-        public          static          game                :MfgGame                = null;
+        public          static          demo                :MfgDemo                = null;
 
         /***************************************************************************************************************
         *   The application's point of entry.
@@ -23,8 +25,8 @@
             Mfg.setDocumentTitle();
             Mfg.styleHtmlBody();
 
-            Mfg.game = new MfgGame();
-            Mfg.game.init();
+            Mfg.demo = new MfgDemo();
+            Mfg.demo.init();
         }
 
         /***************************************************************************************************************

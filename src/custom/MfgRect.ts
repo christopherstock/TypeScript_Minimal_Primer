@@ -46,21 +46,4 @@
             ctx.fillStyle = this.color;
             ctx.fillRect( this.x, this.y, this.width, this.height );
         }
-
-        /***************************************************************************************************************
-        *   Checks if the given rect intersects this rect.
-        *
-        *   @param  rect The rect to check for intersection.
-        *   @return      <code>true</code> if the rects collide.
-        *                Otherwise <code>false</code>.
-        ***************************************************************************************************************/
-        public collidesWithRect(rect:MfgRect):boolean
-        {
-            return (
-                    this.x                < rect.x + rect.width
-                &&  this.x  + this.width  > rect.x
-                &&  this.y                < rect.y + rect.height
-                &&  this.y  + this.height > rect.y
-            );
-        }
     }
