@@ -4,11 +4,10 @@
     *
     *   TODO ASAP include export statements into all classes!
     *   TODO ASAP wrap magic in this class into easy methods!
-    *   TODO ASAP Prune images and sound.
-    *   TODO ASAP Flatten package structure.
     *   TODO ASAP Prune all advanced techs.
+    *   TODO ASAP Merge Canvas and Drawing class.
     *   TODO ASAP Apply BAHAG code style everywhere.
-    *   TODO ASAP Fix all documentations.
+    *   TODO ASAP Fix all doc blocks.
     *
     *   @author  Christopher Stock
     *   @version 1.0
