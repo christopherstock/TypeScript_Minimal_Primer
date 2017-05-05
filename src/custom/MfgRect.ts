@@ -5,7 +5,7 @@
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class LibRect
+    class MfgRect
     {
         /** The left coordinate. */
         public              x               :number                     = 0;
@@ -54,7 +54,7 @@
         *   @return      <code>true</code> if the rects collide.
         *                Otherwise <code>false</code>.
         ***************************************************************************************************************/
-        public collidesWithRect(rect:LibRect):boolean
+        public collidesWithRect(rect:MfgRect):boolean
         {
             return (
                     this.x                < rect.x + rect.width

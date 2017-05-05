@@ -12,9 +12,9 @@
         /** Key handling system. */
         private                 keySystem               :MfgKeySystem                   = null;
         /** The player instance. */
-        private                 player                  :LibRect                        = null;
+        private                 player                  :MfgRect                        = null;
         /** All obstacles the level consists of. */
-        private                 items                   :Array<LibRect>                 = null;
+        private                 items                   :Array<MfgRect>                 = null;
         /** The FPS display. */
         public                  fpsMeter                :FPSMeter                       = null;
 
@@ -70,9 +70,9 @@
         private initItems():void
         {
             this.items = [
-                new LibRect( 150, 100, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
-                new LibRect( 350, 180, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
-                new LibRect( 550, 320, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
+                new MfgRect( 150, 100, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
+                new MfgRect( 350, 180, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
+                new MfgRect( 550, 320, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
             ];
         }
 
@@ -81,7 +81,7 @@
         ***************************************************************************************************************/
         private initPlayer()
         {
-            this.player = new LibRect( 0, 0, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_COLOR );
+            this.player = new MfgRect( 0, 0, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_COLOR );
         }
 
         /***************************************************************************************************************

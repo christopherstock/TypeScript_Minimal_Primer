@@ -6,8 +6,7 @@
         "noImplicitAny":      true,
         "removeComments":     true,
         "preserveConstEnums": true,
-        "sourceMap":          true,
-        "module":             "commonjs"
+        "sourceMap":          true
     },
 
     "include": [
