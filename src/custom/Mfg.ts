@@ -8,6 +8,7 @@
     *   TODO ASAP Flatten package structure.
     *   TODO ASAP Prune all advanced techs.
     *   TODO ASAP Apply BAHAG code style everywhere.
+    *   TODO ASAP Fix all documentations.
     *
     *   @author  Christopher Stock
     *   @version 1.0

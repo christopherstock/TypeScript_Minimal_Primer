@@ -13,8 +13,6 @@
         public                  keySystem               :MfgKeySystem                   = null;
         /** Current level instance. */
         public                  level                   :MfgLevel                       = null;
-        /** Current player viewport. */
-        public                  camera                  :MfgCamera                      = null;
         /** Heads Up Display. */
         public                  hud                     :MfgHUD                         = null;
         /** Game loop. */
@@ -38,7 +36,6 @@
             this.initKeySystem();
 
             this.level    = new MfgLevel();
-            this.camera   = new MfgCamera();
             this.hud      = new MfgHUD();
 
             this.gameLoop = new MfgGameLoop();

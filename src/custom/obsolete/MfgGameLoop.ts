@@ -42,16 +42,6 @@
         {
             //renders the level
             Mfg.game.level.render();
-
-            //update camera position
-            Mfg.game.camera.update
-            (
-                Mfg.game.level.width,
-                Mfg.game.level.height,
-                Mfg.game.canvas.getWidth(),
-                Mfg.game.canvas.getHeight(),
-                Mfg.game.level.player.rect
-            );
         }
 
         /***************************************************************************************************************
@@ -67,10 +57,10 @@
                 0,
                 Mfg.game.canvas.getWidth(),
                 Mfg.game.canvas.getHeight(),
-                MfgDrawing.COLOR_BLACK_OPAQUE
+                "white"
             );
 
             //draw level
-            Mfg.game.level.draw( Mfg.game.canvas.getContext(), Mfg.game.camera );
+            Mfg.game.level.draw( Mfg.game.canvas.getContext() );
         }
     }

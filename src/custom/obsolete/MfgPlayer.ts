@@ -30,15 +30,14 @@
         *   Draws the player.
         *
         *   @param context The 2D drawing context.
-        *   @param camera  The camera context to use for this drawing operation.
         ***************************************************************************************************************/
-        public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
+        public draw( context:CanvasRenderingContext2D )
         {
             MfgDrawing.fillRect
             (
                 context,
-                this.rect.x - camera.x,
-                this.rect.y - camera.y,
+                this.rect.x,
+                this.rect.y,
                 this.rect.width,
                 this.rect.height,
                 MfgDrawing.COLOR_BLUE_TRANSLUCENT_33

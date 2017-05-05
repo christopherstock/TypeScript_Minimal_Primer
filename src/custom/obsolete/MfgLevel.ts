@@ -61,26 +61,14 @@
         *   @param context The 2D drawing context.
         *   @param camera  The camera context to use for this drawing operation.
         ***************************************************************************************************************/
-        public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
+        public draw( context:CanvasRenderingContext2D )
         {
-            MfgDrawing.fillRect
-            (
-                context,
-                0,
-                0,
-                MfgSetting.CANVAS_WIDTH,
-                MfgSetting.CANVAS_HEIGHT,
-                MfgDrawing.COLOR_RED_TRANSLUCENT_33
-            );
-
-            //draw items
             for ( let i:number = 0; i < this.items.length; ++i )
             {
-                this.items[ i ].draw( context, camera );
+                this.items[ i ].draw( context );
             }
 
-            //draw player
-            this.player.draw( context, camera );
+            this.player.draw( context );
         }
 
         /***************************************************************************************************************
