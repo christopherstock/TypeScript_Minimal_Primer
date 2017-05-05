@@ -39,18 +39,14 @@
         {
             if (this.picked) return;
 
-            //draw debug rect
-            if ( MfgDebug.DEBUG_DRAW_BOUNDING_RECTS )
-            {
-                MfgDrawing.fillRect
-                (
-                    context,
-                    this.rect.x - camera.x,
-                    this.rect.y - camera.y,
-                    this.rect.width,
-                    this.rect.height,
-                    MfgDrawing.COLOR_RED_TRANSLUCENT_33
-                );
-            }
+            MfgDrawing.fillRect
+            (
+                context,
+                this.rect.x - camera.x,
+                this.rect.y - camera.y,
+                this.rect.width,
+                this.rect.height,
+                MfgDrawing.COLOR_RED_TRANSLUCENT_33
+            );
         }
     }

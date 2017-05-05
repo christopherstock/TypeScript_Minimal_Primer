@@ -7,9 +7,6 @@
     *******************************************************************************************************************/
     class MfgDebug
     {
-        /** Enables debug blocks. */
-        public      static      DEBUG_DRAW_BOUNDING_RECTS                   :boolean            = true;
-
         /***************************************************************************************************************
         *   Logs a line of output to the default console.
         *

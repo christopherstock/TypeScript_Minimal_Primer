@@ -34,18 +34,15 @@
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
         {
-            if ( MfgDebug.DEBUG_DRAW_BOUNDING_RECTS )
-            {
-                MfgDrawing.fillRect
-                (
-                    context,
-                    this.rect.x - camera.x,
-                    this.rect.y - camera.y,
-                    this.rect.width,
-                    this.rect.height,
-                    MfgDrawing.COLOR_BLUE_TRANSLUCENT_33
-                );
-            }
+            MfgDrawing.fillRect
+            (
+                context,
+                this.rect.x - camera.x,
+                this.rect.y - camera.y,
+                this.rect.width,
+                this.rect.height,
+                MfgDrawing.COLOR_BLUE_TRANSLUCENT_33
+            );
         }
 
         /***************************************************************************************************************
