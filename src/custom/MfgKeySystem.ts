@@ -1,11 +1,12 @@
-
+module de.mayflower.mfg
+{
     /*******************************************************************************************************************
     *   The key system manages all pressed keys.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class MfgKeySystem
+    export class MfgKeySystem
     {
         /** The keycode that represents the 'ARROW LEFT' key. */
         public      static  KEY_LEFT        :number                             = 37;
@@ -70,3 +71,4 @@
             return this.pressed[ keyCode ];
         }
     }
+}

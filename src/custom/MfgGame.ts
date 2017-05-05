@@ -1,11 +1,12 @@
-
+module de.mayflower.mfg
+{
     /*******************************************************************************************************************
     *   Handles the game logic.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class MfgGame
+    export class MfgGame
     {
         /** The canvas rendering context for all 2D drawing operations. */
         private                 canvasContext           :CanvasRenderingContext2D       = null;
@@ -211,3 +212,4 @@
             if ( this.player.y > MfgSetting.CANVAS_HEIGHT - this.player.height ) this.player.y = MfgSetting.CANVAS_HEIGHT - this.player.height;
         }
     }
+}

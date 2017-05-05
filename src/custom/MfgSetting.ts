@@ -1,11 +1,12 @@
-
+module de.mayflower.mfg
+{
     /*******************************************************************************************************************
     *   All project settings, adjustments and balancings.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class MfgSetting
+    export class MfgSetting
     {
         /** Desired canvas width. */
         public      static      CANVAS_WIDTH                        :number             = 900;
@@ -29,3 +30,4 @@
         /** The item's color. */
         public      static      ITEM_COLOR                          :string             = "red";
     }
+}

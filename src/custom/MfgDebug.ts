@@ -1,11 +1,12 @@
-
+module de.mayflower.mfg
+{
     /*******************************************************************************************************************
     *   The debug system contains debug functions and debug feature toggles.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class MfgDebug
+    export class MfgDebug
     {
         /***************************************************************************************************************
         *   Logs a line of output to the default console.
@@ -17,3 +18,4 @@
             console.log( msg );
         }
     }
+}

@@ -1,11 +1,12 @@
-
+module de.mayflower.mfg
+{
     /*******************************************************************************************************************
     *   A rectangular in 2D space.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class MfgRect
+    export class MfgRect
     {
         /** The left coordinate. */
         public              x               :number                     = 0;
@@ -64,3 +65,4 @@
             );
         }
     }
+}

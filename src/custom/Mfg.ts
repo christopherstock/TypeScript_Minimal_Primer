@@ -1,6 +1,9 @@
-
+module de.mayflower.mfg
+{
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
+    *
+    *   TODO ASAP Different modules - explain feature.
     *
     *   TODO ASAP include export statements into all classes!
     *   TODO ASAP wrap magic in this class into easy methods!
@@ -12,7 +15,7 @@
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class Mfg
+    export class Mfg
     {
         /** The singleton instance of the game logic. */
         public          static          game                :MfgGame                = null;
@@ -68,3 +71,4 @@
     window.onunload = function()
     {
     };
+}
