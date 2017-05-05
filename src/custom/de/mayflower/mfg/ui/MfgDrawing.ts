@@ -31,17 +31,4 @@
             ctx.fillStyle = col;
             ctx.fillRect( x, y, width, height );
         }
-
-        /***************************************************************************************************************
-        *   Draws an image at the specified location with a specified anchor.
-        *
-        *   @param ctx The rendering context
-        *   @param img The image to draw.
-        *   @param x   Drawing position x.
-        *   @param y   Drawing position y.
-        ***************************************************************************************************************/
-        public static drawImage( ctx:CanvasRenderingContext2D, img:HTMLImageElement, x:number, y:number )
-        {
-            ctx.drawImage( img, x, y );
-        }
     }

@@ -2,10 +2,12 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO include export statements into all classes!
+    *   TODO ASAP include export statements into all classes!
     *   TODO ASAP wrap magic in this class into easy methods!
     *   TODO ASAP Prune images and sound.
+    *   TODO ASAP Flatten package structure.
     *   TODO ASAP Prune all advanced techs.
+    *   TODO ASAP Apply BAHAG code style everywhere.
     *
     *   @author  Christopher Stock
     *   @version 1.0

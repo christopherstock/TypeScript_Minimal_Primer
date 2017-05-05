@@ -22,7 +22,7 @@
         ***************************************************************************************************************/
         public constructor( x:number, y:number, image:HTMLImageElement )
         {
-            this.rect  = new MfgRect( x, y, image.width, image.height );
+            this.rect  = new MfgRect( x, y, 50, 50 );
             this.image = image;
         }
 
@@ -46,14 +46,6 @@
                     MfgDrawing.COLOR_BLUE_TRANSLUCENT_33
                 );
             }
-
-            MfgDrawing.drawImage
-            (
-                context,
-                this.image,
-                this.rect.x - camera.x,
-                this.rect.y - camera.y
-            );
         }
 
         /***************************************************************************************************************
@@ -64,13 +56,11 @@
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_LEFT ) )
             {
                 this.rect.x -= MfgSetting.PLAYER_SPEED;
-                this.image = Mfg.game.imageSystem.getImage( MfgImage.PLAYER_LEFT );
             }
 
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_RIGHT ) )
             {
                 this.rect.x += MfgSetting.PLAYER_SPEED;
-                this.image = Mfg.game.imageSystem.getImage( MfgImage.PLAYER_RIGHT );
             }
 
             if ( Mfg.game.keySystem.isPressed( MfgKeySystem.KEY_UP ) )

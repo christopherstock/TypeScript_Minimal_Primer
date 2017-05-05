@@ -41,9 +41,9 @@
         private initItems():void
         {
             this.items = [
-                new MfgObstacle( 350, 350, Mfg.game.imageSystem.getImage( MfgImage.ITEM ) ),
-                new MfgObstacle( 450, 475, Mfg.game.imageSystem.getImage( MfgImage.ITEM ) ),
-                new MfgObstacle( 600, 580, Mfg.game.imageSystem.getImage( MfgImage.ITEM ) ),
+                new MfgObstacle( 350, 350, null ),
+                new MfgObstacle( 450, 475, null ),
+                new MfgObstacle( 600, 580, null ),
             ];
         }
 
@@ -52,8 +52,7 @@
         ***************************************************************************************************************/
         private initPlayer()
         {
-            let playerImage:HTMLImageElement = Mfg.game.imageSystem.getImage( MfgImage.PLAYER_RIGHT );
-            this.player = new MfgPlayer( 0, 0, playerImage );
+            this.player = new MfgPlayer( 0, 0, null );
         }
 
         /***************************************************************************************************************
@@ -64,13 +63,14 @@
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D, camera:MfgCamera )
         {
-            //draw bg
-            MfgDrawing.drawImage
+            MfgDrawing.fillRect
             (
                 context,
-                Mfg.game.imageSystem.getImage( MfgImage.BACKGROUND ),
-                0 - camera.x,
-                0 - camera.y
+                0,
+                0,
+                MfgSetting.CANVAS_WIDTH,
+                MfgSetting.CANVAS_HEIGHT,
+                MfgDrawing.COLOR_RED_TRANSLUCENT_33
             );
 
             //draw items
@@ -104,8 +104,6 @@
                 if ( !this.items[ i ].picked && this.player.rect.collidesWithRect( this.items[ i ].rect ) )
                 {
                     this.items[i].picked = true;
-
-                    Mfg.game.soundSystem.playSound( MfgSound.SOUND_PICK_UP );
 
                     MfgDebug.log( 'Item picked up!' );
 

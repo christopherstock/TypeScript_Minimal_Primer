@@ -25,7 +25,7 @@
         ***************************************************************************************************************/
         public constructor( x:number, y:number, image:HTMLImageElement )
         {
-            this.rect  = new MfgRect( x, y, image.width, image.height );
+            this.rect  = new MfgRect( x, y, 50, 50 );
             this.image = image;
         }
 
@@ -52,8 +52,5 @@
                     MfgDrawing.COLOR_RED_TRANSLUCENT_33
                 );
             }
-
-            //draw image
-            MfgDrawing.drawImage( context, this.image, this.rect.x - camera.x, this.rect.y - camera.y );
         }
     }
