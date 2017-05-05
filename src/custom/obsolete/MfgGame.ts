@@ -13,8 +13,6 @@
         public                  keySystem               :MfgKeySystem                   = null;
         /** Heads Up Display. */
         public                  hud                     :MfgHUD                         = null;
-        /** Game loop. */
-        public                  gameLoop                :MfgGameLoop                    = null;
         /** The player instance. */
         public                  player                  :MfgRect                        = null;
         /** All obstacles the level consists of. */
@@ -42,8 +40,7 @@
 
             this.hud      = new MfgHUD();
 
-            this.gameLoop = new MfgGameLoop();
-            this.gameLoop.start();
+            window.setInterval( this.tick, MfgSetting.THREAD_DELAY );
         }
 
         /***************************************************************************************************************
@@ -83,6 +80,19 @@
         {
             this.player = new MfgRect( 0, 0, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_SIZE );
         }
+
+        /***************************************************************************************************************
+        *   Handles one game tick.
+        ***************************************************************************************************************/
+        public tick=()=>
+        {
+            Mfg.game.hud.fpsMeter.tickStart();
+
+            this.render();
+            this.draw( Mfg.game.canvas.getContext() );
+
+            Mfg.game.hud.fpsMeter.tick();
+        };
 
         /***************************************************************************************************************
         *   Renders the current game tick.
