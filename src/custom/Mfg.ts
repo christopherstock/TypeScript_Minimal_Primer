@@ -2,9 +2,6 @@
     /*******************************************************************************************************************
     *   The main class containing the point of entry and termination.
     *
-    *   TODO ASAP Fix all doc blocks.
-    *   TODO ASAP Prune settings!
-    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
