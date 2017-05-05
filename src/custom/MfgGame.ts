@@ -11,12 +11,12 @@
         private                 canvasContext           :CanvasRenderingContext2D       = null;
         /** Key handling system. */
         private                 keySystem               :MfgKeySystem                   = null;
-        /** Heads Up Display. */
-        private                 hud                     :MfgHUD                         = null;
         /** The player instance. */
         private                 player                  :MfgRect                        = null;
         /** All obstacles the level consists of. */
         private                 items                   :Array<MfgRect>                 = null;
+        /** The FPS display. */
+        public                  fpsMeter                :FPSMeter                       = null;
 
         /***************************************************************************************************************
         *   Creates a new game logic.
@@ -36,9 +36,9 @@
             this.initItems();
             this.initPlayer();
 
-            this.hud = new MfgHUD();
+            this.initFpsMeter();
 
-            window.setInterval( this.tick, MfgSetting.THREAD_DELAY );
+            this.startGameLoop();
         }
 
         /***************************************************************************************************************
@@ -85,16 +85,46 @@
         }
 
         /***************************************************************************************************************
+        *   Inits the external FPS Meter.
+        ***************************************************************************************************************/
+        private initFpsMeter()
+        {
+            this.fpsMeter = new FPSMeter(
+                null,
+                {
+                    graph:    1,
+                    decimals: 1,
+                    position: "absolute",
+                    zIndex:   10,
+                    right:    "5px",
+                    top:      "auto",
+                    left:     "auto",
+                    bottom:   "5px",
+                    margin:   "0",
+                    heat:     1
+                }
+            );
+        }
+
+        /***************************************************************************************************************
+        *   Starts the endless game loop.
+        ***************************************************************************************************************/
+        private startGameLoop()
+        {
+            window.setInterval(this.tick, MfgSetting.THREAD_DELAY);
+        }
+
+        /***************************************************************************************************************
         *   Handles one game tick.
         ***************************************************************************************************************/
         private tick=()=>
         {
-            Mfg.game.hud.fpsMeter.tickStart();
+            this.fpsMeter.tickStart();
 
             this.render();
             this.draw(this.canvasContext);
 
-            Mfg.game.hud.fpsMeter.tick();
+            this.fpsMeter.tick();
         };
 
         /***************************************************************************************************************
