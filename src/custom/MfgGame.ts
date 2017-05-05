@@ -65,9 +65,9 @@
         private initItems():void
         {
             this.items = [
-                new MfgRect( 150, 100, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE ),
-                new MfgRect( 350, 180, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE ),
-                new MfgRect( 550, 320, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE ),
+                new MfgRect( 150, 100, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
+                new MfgRect( 350, 180, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
+                new MfgRect( 550, 320, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_SIZE, MfgSetting.ITEM_COLOR ),
             ];
         }
 
@@ -76,7 +76,7 @@
         ***************************************************************************************************************/
         private initPlayer()
         {
-            this.player = new MfgRect( 0, 0, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_SIZE );
+            this.player = new MfgRect( 0, 0, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_SIZE, MfgSetting.PLAYER_COLOR );
         }
 
         /***************************************************************************************************************
@@ -110,39 +110,14 @@
         ***************************************************************************************************************/
         public draw( context:CanvasRenderingContext2D )
         {
-            MfgDrawing.fillRect
-            (
-                context,
-                0,
-                0,
-                Mfg.game.canvas.getWidth(),
-                Mfg.game.canvas.getHeight(),
-                "white"
-            );
+            context.clearRect(0, 0, MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT);
 
-            // TODO turn to foreach !!
-            for ( let i:number = 0; i < this.items.length; ++i )
-            {
-                MfgDrawing.fillRect
-                (
-                    context,
-                    this.items[i].x,
-                    this.items[i].y,
-                    this.items[i].width,
-                    this.items[i].height,
-                    "red"
-                );
+            // TODO to foreach!
+            for ( let i:number = 0; i < this.items.length; ++i ) {
+                this.items[i].draw(context);
             }
 
-            MfgDrawing.fillRect
-            (
-                context,
-                this.player.x,
-                this.player.y,
-                this.player.width,
-                this.player.height,
-                "blue"
-            );
+            this.player.draw(context);
         }
 
         /***************************************************************************************************************

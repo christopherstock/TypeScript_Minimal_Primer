@@ -26,6 +26,8 @@
             this.iCanvasTag.width   = aTargetWidth;
             this.iCanvasTag.height  = aTargetHeight;
 
+            this.iCanvasTag.style.backgroundColor = "white";
+
             //assign paramounts
             this.iContext  = <CanvasRenderingContext2D>this.iCanvasTag.getContext( '2d' );
 

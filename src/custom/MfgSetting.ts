@@ -17,9 +17,13 @@
 
         /** The player's movement speed in pixels per tick. */
         public      static      PLAYER_SPEED                        :number             = 4;
-        /** The player's square size in px */
+        /** The player's square size in px. */
         public      static      PLAYER_SIZE                         :number             = 50;
+        /** The player's color. */
+        public      static      PLAYER_COLOR                        :string             = "blue";
 
-        /** The item's square size in px */
+        /** The item's square size in px. */
         public      static      ITEM_SIZE                           :number             = 25;
+        /** The item's color. */
+        public      static      ITEM_COLOR                          :string             = "red";
     }
