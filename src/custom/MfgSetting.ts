@@ -16,5 +16,5 @@
         public      static      THREAD_DELAY                        :number             = 10;
 
         /** The player's movement speed in pixels per tick. */
-        public      static      PLAYER_SPEED                        :number             = 3;
+        public      static      PLAYER_SPEED                        :number             = 4;
     }

@@ -41,7 +41,7 @@
         private render()
         {
             //renders the level
-            Mfg.game.level.render();
+            Mfg.game.render();
         }
 
         /***************************************************************************************************************
@@ -49,18 +49,6 @@
         ***************************************************************************************************************/
         private draw()
         {
-            //clear canvas
-            MfgDrawing.fillRect
-            (
-                Mfg.game.canvas.getContext(),
-                0,
-                0,
-                Mfg.game.canvas.getWidth(),
-                Mfg.game.canvas.getHeight(),
-                "white"
-            );
-
-            //draw level
-            Mfg.game.level.draw( Mfg.game.canvas.getContext() );
+            Mfg.game.draw( Mfg.game.canvas.getContext() );
         }
     }
