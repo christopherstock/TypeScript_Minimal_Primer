@@ -117,9 +117,8 @@
         {
             context.clearRect(0, 0, MfgSetting.CANVAS_WIDTH, MfgSetting.CANVAS_HEIGHT);
 
-            // TODO to foreach!
-            for ( let i:number = 0; i < this.items.length; ++i ) {
-                this.items[i].draw(context);
+            for (let item of this.items) {
+                item.draw(context);
             }
 
             this.player.draw(context);

@@ -8,9 +8,6 @@
     *   TODO ASAP Merge Canvas and Drawing class.
     *   TODO ASAP Apply BAHAG code style everywhere.
     *   TODO ASAP Fix all doc blocks.
-    *   TODO ASAP Use foreach loop where possible!
-    *   TODO ASAP
-    *   TODO ASAP Move draw() function (fillRect) to Rect class!!
     *
     *   @author  Christopher Stock
     *   @version 1.0
@@ -27,10 +24,19 @@
         {
             MfgDebug.log("Welcome to our main method.");
 
+            Mfg.setDocumentTitle();
             Mfg.styleHtmlBody();
 
             Mfg.game = new MfgGame();
             Mfg.game.init();
+        }
+
+        /***************************************************************************************************************
+        *   Dynamically sets the document's title.
+        ***************************************************************************************************************/
+        private static setDocumentTitle()
+        {
+            document.title = "TypeScript Minimal Primer, (c) 2017 Mayflower GmbH, v. 1.0";
         }
 
         /***************************************************************************************************************
