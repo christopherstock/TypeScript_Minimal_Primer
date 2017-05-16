@@ -31,9 +31,7 @@ class Mfg
     */
     private static styleHtmlBody():void
     {
-        let bodyTags:NodeListOf<HTMLBodyElement> = document.getElementsByTagName("body");
-        let bodyTag :HTMLBodyElement             = bodyTags.item(0);
-        let style   :CSSStyleDeclaration         = bodyTag.style;
+        let style:CSSStyleDeclaration = document.body.style;
 
         style.backgroundColor = "grey";
         style.textAlign       = "center";
