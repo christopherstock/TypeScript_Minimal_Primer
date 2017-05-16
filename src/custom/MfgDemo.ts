@@ -34,14 +34,15 @@ class MfgDemo
     */
     private initCanvas():void
     {
-        let canvasTag:HTMLCanvasElement = <HTMLCanvasElement>document.createElement("canvas");
+        let canvasTag:HTMLCanvasElement = document.createElement("canvas");
+
         canvasTag.width                 = 900;
         canvasTag.height                = 500;
         canvasTag.style.backgroundColor = "white";
 
         document.body.appendChild(canvasTag);
 
-        this.canvasContext              = <CanvasRenderingContext2D>canvasTag.getContext("2d");
+        this.canvasContext = canvasTag.getContext("2d");
     }
 
     /**
